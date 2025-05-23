@@ -9,7 +9,7 @@
   "scripts": {
     "build": "npx tsc",
     "start": "node dist/server.js",
-    "dev": "npx tsc && node dist/server.js"
+    "dev": "copy src\\public\\index.html dist\\public\\ && npx tsc && node dist/server.mjs"
   },
   "dependencies": {
     "dotenv": "^16.5.0",
