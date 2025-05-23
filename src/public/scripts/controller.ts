@@ -5,7 +5,7 @@ import searchView from './views/SearchView.ts';
 
 async function controlRecipes(): Promise<void> {
   try {
-    const id: string = model.state.resultID;
+    const id: string = window.location.hash.slice(1);
     if (!id) return;
 
     recipeView.renderSpinner();
@@ -24,7 +24,6 @@ async function controlSearchRecipes(): Promise<void> {
     await model.searchRecipeAPI(query);
 
     resultsView.render(model.state.search.results);
-    resultsView.handlerAddEventHandler(model.setResultID, controlRecipes);
   } catch (error) {
     resultsView.renderError(error);
   }

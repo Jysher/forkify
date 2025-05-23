@@ -11,7 +11,7 @@ class ResultsView extends View {
       .map(
         (el: RecipeSummary) =>
           `<li class="preview">
-					<a class="preview__link preview__link--active" href="#" data-id=${el.id}>
+					<a class="preview__link preview__link--active" href="#${el.id}">
 						<figure class="preview__fig">
 							<img src="${el.image_url}" alt="${el.title}" />
 						</figure>
@@ -28,23 +28,6 @@ class ResultsView extends View {
 				</li>`
       )
       .join('');
-  }
-
-  public handlerAddEventHandler(
-    setResultID: (id: string | undefined) => void,
-    renderRecipe: () => void
-  ): void {
-    if (!this.parentElement) return;
-    this.parentElement.addEventListener('click', (e: Event) => {
-      if (!e.target) return;
-      const clicked: HTMLElement | null = (e.target as Element).closest(
-        '.preview__link'
-      );
-
-      if (!clicked) return;
-      setResultID(clicked.dataset.id);
-      renderRecipe();
-    });
   }
 }
 

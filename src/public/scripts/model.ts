@@ -9,13 +9,7 @@ export const state = {
     resultsPerPage: 10,
   },
   bookmarks: [],
-  resultID: '5ed6604591c37cdc054bc886',
 };
-
-export function setResultID(id: string | undefined): void {
-  if (!id) return;
-  state.resultID = id;
-}
 
 export async function getRecipeAPI(id: string): Promise<void> {
   try {
